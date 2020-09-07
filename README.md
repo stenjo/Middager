@@ -1,5 +1,5 @@
 # Middager
-Lister opp en google-kalender på et 8x8 diode matrix display
+Displaying a google-kalender on a 8x8 diode matrix display
 Using the library to drive the dot matrix led display cascaded:
 https://pypi.org/project/luma.led_matrix/
 
