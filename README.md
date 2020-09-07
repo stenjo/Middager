@@ -33,6 +33,11 @@ python3 Middager/middag.py
 ```
 When powering up, have the led display disconnected from power as the load might make starting up the Pi a strain on the input voltage.
 
+In case of error message from the dot-matrix driver, try chaning line 69 of middag.py to
+```
+        serial = spi(port=0, device=0, cs_high=True, gpio=noop())
+```
+
 
 To run the display continuously, enter a crontab line like this:
 ```
