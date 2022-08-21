@@ -7,10 +7,10 @@ After=network-online.target
 User=pi
 Group=appropriate-group
 
-WorkingDirectory=/home/pi/Middager
+WorkingDirectory=/home/pi
 Type=simple
 Restart=on-abort
-ExecStart=/usr/bin/python middag.py -m loop
+ExecStart=/usr/bin/python Middager/middag.py -m loop
 
 [Install]
 WantedBy=multi-user.target
