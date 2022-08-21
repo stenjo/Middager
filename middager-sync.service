@@ -5,8 +5,8 @@ After=network-online.target
 
 [Service]
 User=pi
-Group=appropriate-group
-
+Group=pi
+KillMode=mixed
 WorkingDirectory=/home/pi
 Type=simple
 Restart=on-abort

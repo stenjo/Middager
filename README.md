@@ -37,7 +37,14 @@ In case of error message from the dot-matrix driver, try chaning line 69 of midd
 ```
         serial = spi(port=0, device=0, cs_high=True, gpio=noop())
 ```
+## Command line arguments
+The program iterprets some command line arguments. Tese are:
+|Argument|Description|
+|----------|----------|
+|-h, --help| The help instructions|
+|-m, --mode| Repeat mode. Specify 'loop' as argument if the program should enter an eternal loop |
 
+Specifying nothing will keep the program running for 10 minutes approximately, suitable for a cron based run schedule
 # Setting up continuous running from boot
 ## CRON run
 To run the display continuously, enter a crontab line like this:
@@ -45,7 +52,7 @@ To run the display continuously, enter a crontab line like this:
 */10 * * * * python3 /home/pi/Middager/middag.py
 ```
 ## Service
-Alternatively, install as service by copying the service file `/lib/systemd/system` using root.:
+Alternatively, install as service by copying the service file `/lib/systemd/system` using root:
 ```
 sudo cp  middager-sync.service /lib/systemd/system/middager-sync.service
 ```
