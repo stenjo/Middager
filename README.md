@@ -47,5 +47,13 @@ To run the display continuously, enter a crontab line like this:
 ## Service
 Alternatively, install as service by copying the service file `/etc/systemd/system` using root.:
 ```
-$ sudo cp  middager-sync.service /etc/systemd/system/middager-sync.service
+sudo cp  middager-sync.service /etc/systemd/system/middager-sync.service
+```
+When service file is in place, run the following commands to verify and start the service:
+```
+sudo chmod 644 /lib/systemd/system/middager-sync.service
+chmod +x /home/pi/Middager/middager-sync.service
+sudo systemctl daemon-reload
+sudo systemctl enable middager-sync.service
+sudo systemctl start middager-sync.service
 ```
