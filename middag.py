@@ -1,8 +1,11 @@
 from __future__ import print_function
 import datetime
+from re import T
 import time
 import pickle
 import os.path
+import sys, getopt
+
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -40,7 +43,22 @@ def dayText(event):
 
     return text
 
-def main():
+def main(argv):
+    loop = None
+    try:
+        opts, args = getopt.getopt(argv,"hm:",["help ","mode ="])
+    except getopt.GetoptError:
+        print('middag.py -m <loop>')
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt in ('-h', '--help'):
+            print('middag.py -m <loop>')
+            sys.exit()
+        elif opt in ("-m", "--mode"):
+            if arg in ('loop'):
+              loop = True
+
+    print (loop)
     """Shows basic usage of the Google Calendar API.
     Prints the start and name of the next 10 events on the user's calendar.
     """
@@ -71,7 +89,7 @@ def main():
     print("Created device")
 
     start = time.perf_counter()
-    while (start + 550) > time.perf_counter():
+    while (start + 550) > time.perf_counter() or loop:
         # Call the Calendar API
         now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
         # print('Getting the upcoming 10 events')
@@ -91,4 +109,4 @@ def main():
             time.sleep(2)
 
 if __name__ == '__main__':
-    main()
+   main(sys.argv[1:])
