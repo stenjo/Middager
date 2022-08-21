@@ -4,6 +4,10 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
+User=pi
+Group=appropriate-group
+
+WorkingDirectory=/home/pi
 Type=simple
 Restart=on-abort
 ExecStart=/usr/bin/python3 /home/pi/Middager/middag.py

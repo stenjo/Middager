@@ -45,9 +45,9 @@ To run the display continuously, enter a crontab line like this:
 */10 * * * * python3 /home/pi/Middager/middag.py
 ```
 ## Service
-Alternatively, install as service by copying the service file `/etc/systemd/system` using root.:
+Alternatively, install as service by copying the service file `/lib/systemd/system` using root.:
 ```
-sudo cp  middager-sync.service /etc/systemd/system/middager-sync.service
+sudo cp  middager-sync.service /lib/systemd/system/middager-sync.service
 ```
 When service file is in place, run the following commands to verify and start the service:
 ```
