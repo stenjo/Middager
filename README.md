@@ -38,9 +38,14 @@ In case of error message from the dot-matrix driver, try chaning line 69 of midd
         serial = spi(port=0, device=0, cs_high=True, gpio=noop())
 ```
 
-
+# Setting up continuous running from boot
+## CRON run
 To run the display continuously, enter a crontab line like this:
 ```
 */10 * * * * python3 /home/pi/Middager/middag.py
 ```
-
+## Service
+Alternatively, install as service by copying the service file `/etc/systemd/system` using root.:
+```
+$ sudo cp  middager-sync.service /etc/systemd/system/middager-sync.service
+```

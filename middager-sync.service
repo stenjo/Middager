@@ -1,0 +1,15 @@
+[Unit]
+Description=Runs Middager banner carousel
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=appropriate-username
+Group=appropriate-group
+
+WorkingDirectory=/home/pi
+
+ExecStart=/usr/bin/python3 Middager/middag.py
+
+[Install]
+WantedBy=multi-user.target
