@@ -10,7 +10,7 @@ Group=appropriate-group
 WorkingDirectory=/home/pi
 Type=simple
 Restart=on-abort
-ExecStart=/usr/bin/python3 /home/pi/Middager/middag.py
+ExecStart=/usr/bin/python /home/pi/Middager/middag.py
 
 [Install]
 WantedBy=multi-user.target
