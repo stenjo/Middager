@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/stenjo/Middager/compare/v1.0.0...v1.0.1) (2022-09-29)
+
+
+### Bug Fixes
+
+* handle api error on calendar fetch ([3f05256](https://github.com/stenjo/Middager/commit/3f052563afe7cef1d080b80a2ebfb285287afbbf))
+
 ## 1.0.0 (2022-08-21)
 
 
