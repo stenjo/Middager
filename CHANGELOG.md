@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/stenjo/Middager/compare/v1.0.1...v1.1.0) (2022-10-03)
+
+
+### Features
+
+* display version on startup ([f4c12ef](https://github.com/stenjo/Middager/commit/f4c12efd16baeedb2cfa83f0f3f8bb0c7cd7098b))
+* switch off betw. 23_30 and 6:45 ([dbee752](https://github.com/stenjo/Middager/commit/dbee7524ef15cb920c17bee0cea60e5d95a71136))
+
 ## [1.0.1](https://github.com/stenjo/Middager/compare/v1.0.0...v1.0.1) (2022-09-29)
 
 
