@@ -16,6 +16,7 @@ from luma.core.virtual import viewport
 from luma.core.legacy import text, show_message
 from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
 from backports.datetime_fromisoformat import MonkeyPatch
+from pathlib import Path
 
 MonkeyPatch.patch_fromisoformat()
 # If modifying these scopes, delete the file token.pickle.
@@ -62,6 +63,11 @@ def main(argv):
     """Shows basic usage of the Google Calendar API.
     Prints the start and name of the next 10 events on the user's calendar.
     """
+
+    # Get version
+    version = Path('version.txt').read_text().replace('\n','')
+    print("Version: ", version)
+    
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -87,7 +93,11 @@ def main(argv):
     serial = spi(port=0, device=0, gpio=noop())
     device = max7219(serial, cascaded=8, block_orientation=90, rotate=0)
     print("Created device")
-
+    
+    # Show version
+    show_message(device, "Ver. " + version, fill="white", font=proportional(CP437_FONT))
+    time.sleep(4)
+    
     start = time.perf_counter()
     while (start + 550) > time.perf_counter() or loop:
         # Call the Calendar API
