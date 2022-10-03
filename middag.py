@@ -65,7 +65,9 @@ def main(argv):
     """
 
     # Get version
-    version = Path('version.txt').read_text().replace('\n','')
+    script_dir = Path( __file__ ).parent.absolute()
+    filename = os.path.join( script_dir,'version.txt')
+    version = Path(filename).read_text().replace('\n','')
     print("Version: ", version)
     
     creds = None
