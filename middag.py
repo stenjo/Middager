@@ -22,6 +22,13 @@ MonkeyPatch.patch_fromisoformat()
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
+def isNowInTimePeriod(startTime, endTime, nowTime): 
+    if startTime < endTime: 
+        return nowTime >= startTime and nowTime <= endTime 
+    else: 
+        #Over midnight: 
+        return nowTime >= startTime or nowTime <= endTime 
+
 def dayText(event):
 
     weekday = ['Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag','Lørdag','Søndag']
@@ -102,6 +109,11 @@ def main(argv):
     
     start = time.perf_counter()
     while (start + 550) > time.perf_counter() or loop:
+        
+        if not isNowInTimePeriod(datetime.time(6,45), datetime.time(23,30), datetime.datetime.now().time()):
+            time.sleep(300)
+            continue
+        
         # Call the Calendar API
         now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
         # print('Getting the upcoming 10 events')
