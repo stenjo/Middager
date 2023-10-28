@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/stenjo/Middager/compare/v1.1.0...v1.2.0) (2023-10-28)
+
+
+### Features
+
+* vis dato for hendelser mer enn 1 uke fram ([a0939cc](https://github.com/stenjo/Middager/commit/a0939ccd017f77d5a739c863539fdb99855c36cb))
+
 ## [1.1.0](https://github.com/stenjo/Middager/compare/v1.0.1...v1.1.0) (2022-10-03)
 
 
