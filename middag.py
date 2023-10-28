@@ -17,39 +17,12 @@ from luma.core.legacy import text, show_message
 from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
 from backports.datetime_fromisoformat import MonkeyPatch
 from pathlib import Path
+from dateHandling import isNowInTimePeriod, dayText
 
 MonkeyPatch.patch_fromisoformat()
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-def isNowInTimePeriod(startTime, endTime, nowTime): 
-    if startTime < endTime: 
-        return nowTime >= startTime and nowTime <= endTime 
-    else: 
-        #Over midnight: 
-        return nowTime >= startTime or nowTime <= endTime 
-
-def dayText(event):
-
-    weekday = ['Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag','Lørdag','Søndag']
-    text = ''
-    dt = datetime.datetime.fromisoformat(event['start'].get('dateTime', event['start'].get('date')))
-    today = datetime.datetime.today()
-    tomorrow = today + datetime.timedelta(1)
-
-    if dt.date() == today.date() :
-        text = text + 'I dag: '
-    elif dt.date() == tomorrow.date() :
-        text = text + 'I morgen: '
-    else :
-        text = text + weekday[dt.weekday()] + ': '
-
-    text = text + event['summary']
-
-    if dt.hour > 0:
-        text = text + dt.strftime(' kl. %H:%M')
-
-    return text
 
 def main(argv):
     loop = None
@@ -64,7 +37,7 @@ def main(argv):
             sys.exit()
         elif opt in ("-m", "--mode"):
             if arg in ('loop'):
-              loop = True
+                loop = True
 
     print (loop)
     """Shows basic usage of the Google Calendar API.
@@ -138,4 +111,4 @@ def main(argv):
             time.sleep(2)
 
 if __name__ == '__main__':
-   main(sys.argv[1:])
+    main(sys.argv[1:])
