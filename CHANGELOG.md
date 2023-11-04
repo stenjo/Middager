@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/stenjo/Middager/compare/v1.2.0...v1.2.1) (2023-11-04)
+
+
+### Bug Fixes
+
+* **date handling:** can't subtract offset-naive and offset-aware datetimes ([025f8af](https://github.com/stenjo/Middager/commit/025f8af79bca06104c6c3ca66df5445e003dc85f))
+
 ## [1.2.0](https://github.com/stenjo/Middager/compare/v1.1.0...v1.2.0) (2023-10-28)
 
 
