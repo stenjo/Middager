@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timezone, timedelta
 
 def isNowInTimePeriod(startTime, endTime, nowTime): 
     if startTime < endTime: 
@@ -7,13 +7,15 @@ def isNowInTimePeriod(startTime, endTime, nowTime):
         #Over midnight: 
         return nowTime >= startTime or nowTime <= endTime 
 
-def dayText(event, today=datetime.datetime.today()):
+def dayText(event, today=datetime.now(timezone.utc)):
 
     weekday = ['Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag','Lørdag','Søndag']
     text = ''
-    dt = datetime.datetime.fromisoformat(event['start'].get('dateTime', event['start'].get('date')))
-    # today = datetime.datetime.today()
-    tomorrow = today + datetime.timedelta(1)
+    # The line `dt = datetime.datetime.fromisoformat(event['start'].get('dateTime',
+    # event['start'].get('date')))`
+    # is parsing the start time of an event from a dictionary called `event`.
+    dt = datetime.fromisoformat(event['start'].get('dateTime', event['start'].get('date')))
+    tomorrow = today + timedelta(1)
     delta = dt - today
 
     if dt.date() == today.date() :

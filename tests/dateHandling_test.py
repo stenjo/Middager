@@ -67,3 +67,29 @@ def test_dayText_friday_plus_one_week():
     
     assert dayText(event, today) == "Fredag 03/11: Event summary"
 
+def test_dayText_today_with_time_and_timezone():
+    event = {
+        'start': {
+            'date': '2023-10-23',
+            'dateTime': '2023-10-23T10:22:18+01:00'
+        },
+        'summary': 'Event summary'
+    }
+    today = datetime.datetime.strptime("2023-10-23T10:12 +0100", "%Y-%m-%dT%H:%M %z")
+    # print(today)
+    # dt:  2023-11-09 13:15:00+01:00
+    # today:  2023-11-04 18:54:37.512734
+
+    assert dayText(event, today) == "I dag: Event summary kl. 10:22"
+    
+def test_dayText_today_with_datetime_and_timezone():
+    event = {
+        'start': {
+            'date': datetime.datetime.today().strftime('%Y-%m-%d'),
+            'dateTime': datetime.datetime.today().strftime('%Y-%m-%d') + 'T10:22:18+01:00'
+        },
+        'summary': 'Event summary'
+    }
+
+    assert dayText(event) == "I dag: Event summary kl. 10:22"
+    
