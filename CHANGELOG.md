@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/stenjo/Middager/compare/v1.2.1...v1.2.2) (2023-11-07)
+
+
+### Bug Fixes
+
+* **dateHandling:** trouble with dates from appointment ([3da38d5](https://github.com/stenjo/Middager/commit/3da38d5e796ae35e848568e905a1eafc22e9983f))
+
 ## [1.2.1](https://github.com/stenjo/Middager/compare/v1.2.0...v1.2.1) (2023-11-04)
 
 
