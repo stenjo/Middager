@@ -11,10 +11,7 @@ def dayText(event, today=datetime.now(timezone.utc)):
 
     weekday = ['Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag','Lørdag','Søndag']
     text = ''
-    # The line `dt = datetime.datetime.fromisoformat(event['start'].get('dateTime',
-    # event['start'].get('date')))`
-    # is parsing the start time of an event from a dictionary called `event`.
-    dt = datetime.fromisoformat(event['start'].get('dateTime', event['start'].get('date')))
+    dt = datetime.fromisoformat(event['start'].get('dateTime', event['start'].get('date'))).replace(tzinfo=timezone.utc)
     tomorrow = today + timedelta(1)
     delta = dt - today
 
